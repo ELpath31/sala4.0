@@ -1,0 +1,377 @@
+/* =========================
+   🎨 Base
+   ========================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Condensed", Arial, sans-serif;
+  background-color: rgb(198, 200, 217);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* evita scroll horizontal accidental */
+}
+
+/* =========================
+   🔹 Menú superior
+   ========================= */
+.MenuFlotante {
+  width: 100vw;
+  height: 50px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.MenuFlotante .links {
+  display: flex;
+  gap: 15px;
+}
+
+.MenuFlotante .links a {
+  color: rgb(248, 229, 205);
+  text-decoration: none;
+  padding: 0 10px;
+  font-size: 16px;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.MenuFlotante .links a:hover {
+  color: rgb(157, 11, 11);
+}
+
+.MenuFlotante .links a .icono {
+  display: none; /* ocultos en desktop */
+}
+
+/* Redes */
+.MenuFlotante .Redes {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.MenuFlotante .Redes img {
+  height: 22px;
+  width: 22px;
+}
+
+/* Botón hamburguesa */
+.hamburguesa {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+/* =========================
+   🔹 Logo + Texto
+   ========================= */
+/* 🔹 Logo + Texto */
+.espacio {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.espacio img {
+  height: 70px; /* tamaño normal */
+}
+
+.texto-logo {
+  font-size: 60px;
+  font-weight: 600;
+  color: black;
+}
+
+/* ========================= 📱 Responsive ========================= */
+
+/* 💻 Pantallas mayores a 600px */
+@media (min-width: 601px) {
+  .espacio img {
+    height: 50px;  /* logo más pequeño */
+  }
+  .texto-logo {
+    font-size: 40px; /* texto más pequeño */
+  }
+}
+
+/* 📱 Celulares pequeños (<=600px) */
+@media (max-width: 600px) {
+  .espacio {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .espacio img {
+    height: 40px; /* aún más pequeño */
+  }
+  .texto-logo {
+    font-size: 28px;
+  }
+}
+
+/* 📱 Extra pequeños (<=410px) */
+@media (max-width: 410px) {
+  .espacio {
+    flex-direction: row;     /* ✅ Logo y texto en la misma fila */
+    align-items: center;     /* ✅ Centra verticalmente */
+    justify-content: flex-start; /* ✅ Pegados a la izquierda */
+    margin-left: 8px;
+    gap: 6px;
+  }
+  .espacio img {
+    height: 32px; /* más pequeño */
+  }
+  .texto-logo {
+    font-size: 22px;
+  }
+}
+
+
+
+
+/* =========================
+   📱 Responsive
+   ========================= */
+
+/* 💻 Portátiles / tablets */
+@media (max-width: 1024px) {
+  .espacio {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .espacio img {
+    height: 55px; /* logo más pequeño */
+  }
+  .texto-logo {
+    font-size: 42px; /* texto más pequeño */
+  }
+}
+
+/* 📱 Celulares */
+@media (max-width: 600px) {
+  .espacio {
+    justify-content: flex-start;
+    margin-left: 10px;
+    gap: 8px;
+  }
+  .espacio img {
+    height: 40px;
+  }
+  .texto-logo {
+    font-size: 28px;
+  }
+}
+
+/* 📱 Extra pequeño (≤410px) */
+@media (max-width: 410px) {
+  .hamburguesa {
+    display: block;
+    z-index: 1001;
+  }
+
+  .MenuFlotante .links {
+    flex-direction: column;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+  .MenuFlotante .links.activo {
+    left: 0;
+  }
+
+  .MenuFlotante .links a {
+    padding: 15px 20px;
+    font-size: 18px;
+    color: black;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .MenuFlotante .links a .icono {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+
+  .espacio {
+    margin-left: 8px;
+    gap: 6px;
+  }
+  .espacio img {
+    height: 36px;
+  }
+  .texto-logo {
+    font-size: 24px;
+  }
+}
+
+/* =========================
+   🖼️ GALERÍA
+   ========================= */
+
+/* 🖥 Escritorio → grid */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.galeria img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  transition: transform .3s, box-shadow .3s;
+}
+
+/* Hover solo escritorio */
+@media (min-width: 601px) {
+  .galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,.3);
+  }
+}
+
+/* 📱 Celular → carrusel horizontal */
+@media (max-width: 600px) {
+  .galeria {
+    display: flex;
+    overflow: hidden;
+    gap: 0;
+    padding: 0;
+  }
+  .galeria img {
+    flex: 0 0 100vw; /* ancho total */
+    height: 75vh;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* =========================
+   📍 Sección Mapa + Texto
+   ========================= */
+.ubicacion-section {
+  max-width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.mapa-contenedor {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mapa-contenedor iframe {
+  width: 400px;
+  max-width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.25);
+}
+
+.texto-ubicacion {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  color: #0f1724;
+}
+
+.texto-ubicacion h3 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 0.6px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.texto-ubicacion p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #262626;
+  max-width: 60ch;
+}
+
+.boton-cta {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 10px 16px;
+  background: #111827;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(17,24,39,.12);
+}
+
+.boton-cta:hover {
+  transform: translateY(-2px);
+  transition: transform .18s ease;
+}
+
+/* Responsive mapa+texto */
+@media (max-width: 900px) {
+  .ubicacion-section { gap: 20px; }
+  .texto-ubicacion h3 { font-size: 24px; }
+  .texto-ubicacion p { font-size: 15px; }
+  .mapa-contenedor iframe { height: 220px; }
+}
+
+@media (max-width: 600px) {
+  .ubicacion-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    gap: 14px;
+  }
+  .mapa-contenedor {
+    justify-content: center;
+    margin-left: 0;
+    width: 100%;
+  }
+  .texto-ubicacion {
+    align-items: center;
+  }
+  .texto-ubicacion p {
+    max-width: 100%;
+    font-size: 15px;
+  }
+  .boton-cta {
+    padding: 10px 18px;
+  }
+}
